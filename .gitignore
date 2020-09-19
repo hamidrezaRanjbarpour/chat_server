@@ -2,3 +2,9 @@
 
 chatapp/settings.py
 chatapp/__init__.py
+chatapp/__pycache__/
+db.sqlite3
+
+messanger/migrations/
+messanger/__init__.py
+messanger/__pycache__/
