@@ -1,18 +1,28 @@
 {% extends 'messenger/base.html' %}
+{% load widget_tweaks %}
 {% load static %}
 
 {% block title %}Chat Rooms{% endblock %}
 
 {% block content %}
     <div class="container">
-        <p>What chat room would you like to enter?</p>
-        <input id="room-name-input" type="text" size="100"><br>
-        <button class="btn btn-primary" id="room-name-submit" type="submit">Enter</button>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.room_name.id_for_label }}">What chat room would you like to enter?</label>
+                {{ form.room_name|append_attr:"class:form-control"|attr:"placeholder:Room Name" }}
+
+                <div class="invalid-feedback d-block">
+                    Please choose a username.
+                </div>
+                <button class="btn btn-primary" id="room-name-submit" type="submit">Enter</button>
+            </div>
+        </form>
     </div>
 
 
 {% endblock %}
 
 {% block script %}
-    <script src="{% static 'messenger/index.js' %}"></script>
+    {#    <script src="{% static 'messenger/index.js' %}"></script>#}
 {% endblock %}
