@@ -5,18 +5,21 @@
 {% block title %}Chat Rooms{% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="container mt-3">
         <form action="" method="post">
             {% csrf_token %}
             <div class="form-group">
                 <label for="{{ form.room_name.id_for_label }}">What chat room would you like to enter?</label>
-                {{ form.room_name|append_attr:"class:form-control"|attr:"placeholder:Room Name" }}
+                {{ form.room_name|append_attr:"class:form-control"|attr:"placeholder:Room Name"|attr:"aria-describedby=help-text" }}
+                <small id="help-text" class="form-text text-muted">
+                    Room name shouldn't include whitespace &amp; some special characters.
+                </small>
 
-                <div class="invalid-feedback d-block">
-                    Please choose a username.
-                </div>
-                <button class="btn btn-primary" id="room-name-submit" type="submit">Enter</button>
+                {#                <div class="invalid-feedback d-block">#}
+                {#                    Please choose a username.#}
+                {#                </div>#}
             </div>
+            <button class="btn btn-primary" id="room-name-submit" type="submit">Enter</button>
         </form>
     </div>
 
