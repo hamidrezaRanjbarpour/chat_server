@@ -12,7 +12,7 @@
                 <label for="{{ form.room_name.id_for_label }}">What chat room would you like to enter?</label>
                 {{ form.room_name|append_attr:"class:form-control"|attr:"placeholder:Room Name"|attr:"aria-describedby=help-text" }}
                 <small id="help-text" class="form-text text-muted">
-                    Room name shouldn't include whitespace &amp; some special characters.
+                    Room should only contain letters, digits, hyphens, and periods.
                 </small>
 
                 {#                <div class="invalid-feedback d-block">#}
