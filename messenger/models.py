@@ -12,7 +12,8 @@ class Message(models.Model):
         return self.author.username
 
     # get 10 most recent messages
-    def get_most_recent_messages(self):
-        return self.objects.all().order_by('-time_stamp')[:10]
+    @staticmethod
+    def get_most_recent_messages():
+        return Message.objects.all().order_by('-time_stamp')[:10]
 
 
