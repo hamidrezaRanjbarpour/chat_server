@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from .forms import IndexForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -18,7 +19,9 @@ def index(request):
     return render(request, 'messenger/index.html', {'form': form})
 
 
+@login_required
 def room(request, room_name):
     return render(request, 'messenger/room.html', {
-        'room_name': room_name
+        'room_name': room_name,
+        'username': request.user.username
     })

@@ -11,6 +11,9 @@
                placeholder="Write your message here..">
         <button type="button" class="btn btn-info" id="chat-message-submit">Send</button>
         {{ room_name|json_script:"room-name" }}
+        {% if request.user.is_authenticated %}
+            {{ request.user.username|json_script:"author-username" }}
+        {% endif %}
     </div>
 
 {% endblock %}
