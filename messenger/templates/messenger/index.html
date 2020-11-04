@@ -1,0 +1,32 @@
+{% extends 'messenger/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}Chat Rooms{% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.room_name.id_for_label }}">What chat room would you like to enter?</label>
+                {{ form.room_name|append_attr:"class:form-control"|attr:"placeholder:Room Name"|attr:"aria-describedby=help-text" }}
+                <small id="help-text" class="form-text text-muted">
+                    Room should only contain letters, digits, hyphens, and periods.
+                </small>
+
+                {#                <div class="invalid-feedback d-block">#}
+                {#                    Please choose a username.#}
+                {#                </div>#}
+            </div>
+            <button class="btn btn-primary" id="room-name-submit" type="submit">Enter</button>
+        </form>
+    </div>
+
+
+{% endblock %}
+
+
+{% block script %}
+    {#    <script src="{% static 'messenger/index.js' %}"></script>#}
+{% endblock %}

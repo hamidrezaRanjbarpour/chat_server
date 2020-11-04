@@ -1,0 +1,23 @@
+{% extends 'messenger/base.html' %}
+{% load static %}
+
+{% block title %}Chat Room{% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        <textarea class="form-control" id="chat-log" cols="100" rows="20" readonly></textarea>
+
+        <input class="form-control my-1" id="chat-message-input" type="text" size="100"
+               placeholder="Write your message here..">
+        <button type="button" class="btn btn-info" id="chat-message-submit">Send</button>
+        {{ room_name|json_script:"room-name" }}
+        {% if request.user.is_authenticated %}
+            {{ request.user.username|json_script:"author-username" }}
+        {% endif %}
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'messenger/room.js' %}"></script>
+{% endblock %}

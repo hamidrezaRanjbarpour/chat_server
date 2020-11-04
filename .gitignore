@@ -5,8 +5,9 @@ chatapp/__init__.py
 chatapp/__pycache__/
 db.sqlite3
 
-messanger/migrations/
-messanger/__init__.py
-messanger/__pycache__/
+messenger/migrations/
+messenger/__init__.py
+messenger/__pycache__/
 
 __pycache__/
+To_do_list.txt

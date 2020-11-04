@@ -1,11 +1,11 @@
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
-import messanger.routing
+import messenger.routing
 
 application = ProtocolTypeRouter({
     'websocket': AuthMiddlewareStack(
         URLRouter(
-            messanger.routing.websocket_urlpatterns
+            messenger.routing.websocket_urlpatterns
         )
     ),
 })
